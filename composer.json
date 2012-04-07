@@ -1,6 +1,7 @@
 {
     "name": "gossi/ldap",
-    "description": "PHP classes for Ldap Connections",
+    "description": "A class collection to encapsulate php ldap function and work with them in a nicer (and oop) way.",
+    "type": "library",
     "authors": [
         {
             "name": "gossi",
