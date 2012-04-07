@@ -2,6 +2,7 @@
     "name": "gossi/ldap",
     "description": "A class collection to encapsulate php ldap function and work with them in a nicer (and oop) way.",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "gossi",
