@@ -51,44 +51,44 @@ class LdapEntry {
 	 * @return String The first value for the given attribute or <code>null</code> if the attribute does not exist. 
 	 */
 	public function getFirst($attribute) {
-        if ($attributes = $this->getAll($attribute)) {
-            return $attributes[0];
-        } else {
+		if ($attributes = $this->getAll($attribute)) {
+			return $attributes[0];
+		} else {
 			return null;
 		}
 	}
 
-    /**
-     * Returns all the values for the given attribute
-     *
-     * @param String $attribute The given attribute.
-     * @return array The values for the given attribute or <code>null</code> if the attribute does not exist.
-     */
-    public function getAll($attribute) {
-        $values = ldap_get_values($this->conn, $this->entry, $attribute);
+	/**
+	 * Returns all the values for the given attribute
+	 *
+	 * @param String $attribute The given attribute.
+	 * @return array The values for the given attribute or <code>null</code> if the attribute does not exist.
+	 */
+	public function getAll($attribute) {
+		$values = ldap_get_values($this->conn, $this->entry, $attribute);
 
-        $allValues = array();
+		$allValues = array();
 
-        if ($values && $values['count']) {
-            for ($i = 0; $i < $values['count']; $i++) {
-                $allValues[] = $values[$i];
-            }
+		if ($values && $values['count']) {
+			for ($i = 0; $i < $values['count']; $i++) {
+				$allValues[] = $values[$i];
+			}
 
-            return $allValues;
-        } else {
-            return null;
-        }
-    }
+			return $allValues;
+		} else {
+			return null;
+		}
+	}
 
-    /**
-     * Returns the first value for the given attribute
-     *
-     * @param String $attribute The given attribute.
-     * @return String The first value for the given attribute or <code>null</code> if the attribute does not exist.
-     */
-    public function get($attribute) {
-        return $this->getFirst($attribute);
-    }
+	/**
+	 * Returns the first value for the given attribute
+	 *
+	 * @param String $attribute The given attribute.
+	 * @return String The first value for the given attribute or <code>null</code> if the attribute does not exist.
+	 */
+	public function get($attribute) {
+		return $this->getFirst($attribute);
+	}
 
 	/**
 	 * Returns the distinguished name for that LDAP entity.
